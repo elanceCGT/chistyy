@@ -1,0 +1,399 @@
+@charset "utf-8";
+/* CSS Document */
+
+.slider2height{
+	height:92px !important;
+}
+.locationform{
+	float:left;
+	width:100%;
+}
+.locationforminput{
+	float:left;
+	width:100%;
+	margin-bottom:20px;
+}
+.locationtextbox{
+	border:#cccccc 1px solid;
+	width:100%;
+	float:left;
+	padding:10px;
+	font-size:13px;
+	color:#999999;
+	border-radius:5px;
+}
+.locationformbutton{
+	width:122px;
+    float:left;
+	background:#e9e9e9;
+	border:none;
+	text-align:center;
+	padding:12px 0px;
+	font-size:13px;
+	border-radius:5px;
+	margin-right:11px;
+	color:#5d5d5d;
+	box-shadow: 0 1px 1px 0 #707070;
+}
+.locationformbuttonmargin{
+	margin-right:0px;
+}
+.locationformbutton:hover{
+	background:#4f2f2f;
+	color:#ffffff;
+}
+.locationforminputleft{
+	width:48%;
+	float:left;
+}
+.locationforminputright{
+	width:48%;
+	float:right;
+}
+.locationtablediv{
+	float:left;
+	width:100%;
+	margin-bottom:20px;
+}
+.locationtablediv{
+	border:#CCC 1px solid;
+	border-radius:5px;
+}
+.locationtablediv th{
+	background:#d8d8d8;
+	 padding: 13px 10px !important;
+	  font-size:13px;
+}
+.locationtablediv td{
+	 padding: 10px 10px !important;
+	 font-size:13px;
+	 color:#999999;
+}
+.locationcheckdiv{
+	margin: 0 auto;
+    text-align: center;
+    width: 15px;
+}
+.locationtabledivcenter{
+	text-align:center;
+}
+.signup_check {
+    display: none;
+}
+.signup_check + label span {
+    background: url("../img/checkblank.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 22px;
+    vertical-align: middle;
+    width: 22px;
+}
+.signup_check:checked + label span {
+    background: url("../img/checkselect.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.locationbuttomdiv{
+	width:100%;
+	float:left;
+}
+.locationbuttomdiv_topfirst{
+	width:100%;
+	float:left;
+	padding:15px 0px;
+	border-bottom:#CCC 1px solid;
+}
+.locationbuttomdiv_topfirst span{
+	font-size:14px;
+	color:#333333;
+	margin-left:10px;
+	font-weight:600;
+}
+.locationbuttomdiv_topfirst_left{
+	float:left;
+	width:70%;
+}
+.locationbuttomdiv_topfirst_right{
+	float:right;
+	margin-top:30px;
+	
+}
+.locationbuttomdiv_profileimg{
+	 width:60px;
+	float:left;
+}
+.locationbuttomdiv_profileinfo{
+	float: right;
+    margin-top: 10px;
+    width: 91%;
+}
+.locationbuttomdiv_profileinfo_title{
+	width:100%;
+	float:left;
+	font-size:14px;
+	color:#333333;
+	font-weight:600;
+}
+.locationbuttomdiv_profileinfo_texr{
+	width:100%;
+	float:left;
+	font-size:14px;
+	color:#333333;
+}
+.locationfav{
+	float:left;
+	width:100%;
+	font-size:14px;
+	color:#333;
+	margin-top:7px;
+}
+.locationfav span{
+	float:left;
+	margin-right:10px;
+}
+.locationbuttonouter{
+	margin:0 auto;
+	width:390px;
+}
+.locationbutton{
+	width:100%;
+	float:left;
+	background:#ff423c;
+	text-align:center;
+	padding:5px 0px;
+	border-radius:5px;
+	border:none;
+	font-family: 'BebasNeueRegular';
+	font-size:25px;
+	color:#ffffff;
+	margin-top:40px;
+}
+.login_forgottext{
+	float:right;
+	color:#000000;
+	font-size:14px;
+	margin-bottom:20px;
+}
+.login_forgottext span{
+	margin-left:10px;
+}
+.longinlinediv{
+	width:100%;
+	float:left;
+	border-bottom:#ccc 1px solid;
+	position:relative;
+	margin-top:20px;
+	margin-bottom:40px;
+}
+.longinordiv{
+	width:100%;
+	float:left;
+	position:absolute;
+	text-align:center;
+	top:-20px;
+}
+.loginfacebookicon{
+	width:195px;
+	margin:0 auto;
+}
+.loginpopupinput {
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+	border-radius:5px;
+	padding:10px;
+	border:#CCC 1px solid;
+}
+.loginpopupinputtextbox{
+	float:left;
+	width:90%;
+	font-size:13px;
+	color:#808080;
+	border:none;
+}
+.loginpopupinput span{
+	float:right;
+}
+.signinpopupinput{
+	width:100%;
+	float:left;
+	margin-bottom:10px;
+}
+.signinpopupinput_left{
+	width:30%;
+	font-size:13px;
+	color:#262626;
+	font-weight:600;
+	line-height:40px;
+	float:left;
+	
+}
+.signinpopupinput_right{
+	width:70%;
+	float:right;
+	
+}
+.signinpopuptextbox{
+	width:100%;
+	float:left;
+	border:#cccccc 1px solid;
+	border-radius:5px;
+	font-size:13px;
+	color:#999999;
+	padding:10px;
+}
+.signpopuopcapimg{
+	float:left;
+	width:117px;
+	float:left;
+	
+}
+.signpopuopcaptextbox{
+	width:66%;
+	float:right;
+}
+.signinpopupinput_rightfirst{
+	float:left;
+	margin-bottom:10px;
+	font-size:13px;
+	color:#000;
+	width:100%;
+}
+.signinpopupinput_rightfirst span{
+	 float: left;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.signinpopupcondition{
+	width:100%;
+	margin:10px 0px;
+	float:left;
+	
+}
+.signinpopupcondition label{
+	font-size:13px;
+	color:#000;
+	font-weight:normal;
+}
+.signinpopupcondition input{
+	float:left;
+	margin-right:10px !important;
+}
+.signinpopupcondition a{
+	color:#ff423c;
+	font-size:13px;
+	text-decoration:none;
+}
+.signinpopup_buttondin{
+	width:100%;
+	float:left;
+}
+.signinpopupregisterbutton{
+	width:90px;
+	padding:9px 20px;
+	float:left;
+	background:#ff423c;
+	border-radius:5px;
+	border:none;
+	font-size:15px;
+	color:#ffffff;
+	font-family: 'BebasRegular';
+}
+.signinpopupcancelbutton{
+	background:#dcdcdc;
+	color:#000000;
+	margin:0px 10px;
+	padding:9px 20px;
+	float:left;
+	border-radius:5px;
+	border:none;
+	font-size:15px;
+	font-family: 'BebasRegular';
+}
+.signinpopup_buttondin a{
+	float:left;
+}
+.sportshopmap{
+	width:100%;
+	float:left;
+	margin-bottom:20px;
+}
+.locationtable{
+	margin-bottom:0px !important
+}
+.spoortsmalltextbox{
+	width:30%;
+    float:left;
+}
+.spoortsmalltextboxmargin{
+	margin:0px 22px;
+}
+.spoortshoprighttextarea {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #808080;
+    float: left;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+	resize:none;
+	height:110px;
+}
+.aboutushedder_pro_pic:hover .hedderpopover{
+	display:block;
+}
+.hedderpopover{
+	 background: none repeat scroll 0 0 #fff;
+    float: left;
+    left: 0;
+    position: absolute;
+    top: 75px;
+    width: 100%;
+	z-index:999;
+	display:none;
+}
+.hedderpopover ul{
+	float:left;
+	width:100%;
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	margin-top:7px;
+}
+.hedderpopover ul li{
+	float:left;
+	width:100%;
+	
+}
+.hedderpopover ul li a{
+	 color: #333333;
+    float: left;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 6px 10px;
+    text-align: left;
+    width: 100%;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+.hedderpopover ul li a:hover{
+	text-decoration:none;
+	background:#f3f3f3;
+}
+.hedderpopoverarrow{
+	float:left;
+	position:absolute;
+	top:-12px;
+	left:30px;
+}
+.icon-bar {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 3px;
+    float: left;
+    height: 2px;
+    margin-top: 5px;
+    width: 100%;
+}
+.responsive_menu{
+	display:none;
+}

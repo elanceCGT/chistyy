@@ -1,0 +1,162 @@
+.flashMessage, .ajaxMessage {
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	border: 1px solid;
+	font-size: 12px;
+	margin: 0 auto;
+	padding: 10px 0 10px 35px;
+	position: fixed;
+	text-align: center;
+	width: 35% !important;
+	z-index: 100;
+}
+.flashSuccess, .ajaxSuccess {
+	background-color: #DFF0D8;
+	/*background-image: url("../../img/front/success.png");*/
+	color: #4F8A10;
+	left: 30%;
+	position: fixed;
+	top: 12px;
+	z-index: 40;
+}
+
+.flashError, .ajaxError {
+	background-color: #EBCCD1;
+	/*background-image: url("../../img/front/error1.png");*/
+	color: #A94442;
+	left: 30%;
+	position: fixed;
+	top: 12px;
+	z-index: 40;
+}
+.error-message{
+	color:red;
+	display:inline-block;
+}
+.imgCircle{
+    border: 7px solid #FFFFFF;
+    border-radius: 50%;
+    height: 170px;
+    width: 170px;
+}
+.socialLinks{
+  margin-top:5px;
+}
+.aboutushedderlogo{
+  font-family: 'snowinterfree';
+}
+.iconm{
+   cursor: pointer        
+}
+.aboutushedder_pro_pic {
+    padding:21px 5px 21px 15px;
+}
+.aboutushedder_pro_pic_logged{
+   /*padding:13px 15px;*/
+   padding:13px 5px 13px 15px;
+}
+.hedderpopover_logged{
+   top:67px;
+}
+.aboutushedder_pro_pic_without_log{
+   width: auto; padding:8px 15px;
+}
+.event_pro_img img, .revipic img, .locationbuttomdiv_profileimg img{
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+.popupdesing_buttomcheckbox{
+  width: auto;  
+}
+
+.popupdesing3{
+    /*margin-top: -21px;*/
+}
+
+.error-message{
+    color:#AF2020;
+    font-size: 11px;
+}
+
+.checkbox-align{
+    margin-left: 0px !important;
+}
+
+.center{
+    text-align: center !important;
+}
+.login-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+.event_lo_jon{
+    width: 85px;
+}
+.section_2{
+    min-height: 704px;
+    height: 100%;
+}
+.play{
+    margin-top: 200px;
+    cursor: pointer;
+}
+.shop_lefttitle{
+    width: 100%;
+}
+.pro-index-img{
+    width: 170px;
+    height: 105px;
+}
+.img_remove{
+    cursor: pointer;
+}
+.mypins-text{
+    width: 100%;
+}
+
+/* Product Page Hover and rating */
+.premimum_leftfirst{
+    border:1px solid transparent;
+}
+
+.premimum_leftfirst:hover{
+    cursor: pointer;    
+    background: none repeat scroll 0 0 #D8D8D8;
+    border:1px solid #878787;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.premimum_leftfirst.selected{
+    cursor: pointer;    
+    background: none repeat scroll 0 0 #D8D8D8;
+    border:1px solid #878787;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.actionbox{
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.pro-action{
+    display: block;
+    float: left;
+    height: 24px;
+    padding: 5px;
+    width: 24px;
+}
+
+.rate_1{ width:85px; height:14px; float:left;  background:url('../img/star_small.png') no-repeat scroll 0px -14px transparent; }
+.rate_2{ width:85px; height:14px; float:left;  background:url('../img/star_small.png') no-repeat scroll 0px -28px transparent; }
+.rate_3{ width:85px; height:14px; float:left;  background:url('../img/star_small.png') no-repeat scroll 0px -42px transparent; }
+.rate_4{ width:85px; height:14px; float:left;  background:url('../img/star_small.png') no-repeat scroll 0px -56px transparent; }
+.rate_5{ width:85px; height:14px; float:left;  background:url('../img/star_small.png') no-repeat scroll 0px -70px transparent; }
