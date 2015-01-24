@@ -3,48 +3,38 @@ App::uses('AppModel', 'Model');
 class Service extends AppModel{
 	//public $belongsTo  = array('Category' => array('counterCache'=>true));
 	
+	/*public $hasOne = array(
+		'ServiceProviderService' => array('className' => 'ServiceProviderService', 'foreignKey' => 'servic_cd')
+	);*/
+
 	public $validate = array(
-        'service_name' => array(
-					'rule1' => array(
-							'rule' => 'notEmpty',
-							'message' => "Service Name can't empty.",
-							'last' => true
-						),
-					'rule2' => array(
-							'rule' => 'isUnique',
-        			'required' => 'create',
-							'message' => "Duplicate Service Name."
-						)	
+		'service_name' => array(
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => "Service Name can't empty.",
+				'last' => true
+			),
+			'isUnique' => array(
+				'rule' => 'isUnique',
+				'required' => 'create',
+				'message' => "Duplicate Service Name."
+			)
         ),
-				'category_id' => array(
-					'required' => true,
-					'rule' => array('notEmpty'),
-        	'message' => "Select Category."
+		'category_id' => array(
+			'required' => true,
+			'rule' => array('notEmpty'),
+        	'message' => "Select Category.",
+        	'rule' => array('comparison', '>', 0),
+        	'message' => 'Please Select Main Category'
         ),
-				'hourly_rate' =>array(
-					'Rule-1' => array(
-						'rule' => array('notEmpty'),
-						'message' => "Hourly Rate can't empty.",
-						'last' => true
-					),
-					'Rule-2' => array(
-						'rule' => array('Numeric'),
-						'message' => 'Only numbers allowed',
-						'last' => true
-					),
-				),
-				'minimum_hour' =>array(
-					'Rule-1' => array(
-						'rule' => array('notEmpty'),
-						'message' => "Minimum Hour can't empty.",
-						'last' => true
-					),
-					'Rule-2' => array(
-						'rule' => array('Numeric'),
-						'message' => 'Only numbers allowed',
-					)
-				),
-		);
+		'sub_category_id' => array(
+			'required' => true,
+			'rule' => array('notEmpty'),
+        	'message' => "Select Category.",
+        	'rule' => array('comparison', '>', 0),
+        	'message' => 'Please Select Sub Category'
+        )
+	);
 
 	public $belongsTo = array(
         'Category' => array(

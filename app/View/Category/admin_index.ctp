@@ -5,7 +5,9 @@
             <li> <a href="index.html">Home</a> </li>
         </ol><?*/?>
     </div>
-    <div class="col-lg-2"><a style="margin-top:20px;" href="<?php echo $this->Html->url(array('controller' => 'category', 'action' => 'admin_add')); ?>" class="btn btn-primary control-label pull-right">Add</a></div>
+    <div class="col-lg-2">
+    	<a style="margin-top:20px;" href="<?php echo $this->Html->url(array('controller' => 'category', 'action' => 'admin_add')); ?>" class="btn btn-primary control-label pull-right">Add</a>
+    </div>
 </div>
 <?php //echo $this->element('admin/breadcrumb',array('Listings'=>$Listings)); ?>
 <!-- Admin Side Forms -->
@@ -35,15 +37,16 @@
 			url: '<?php echo $this->Html->url(array("controller" => "category", "action" => "admin_categorylist")); ?>',
 			datatype: "json",
 			mtype: 'GET',
-			colNames: ['S No','Category', 'No of Service', 'Add New Service', 'Status', 'Edit', 'Delete'],
+			//colNames: ['S No','Category', 'No of Service', 'Add New Service', 'Status', 'Edit', 'Delete'],
+			colNames: ['S No','Category', 'Status', 'Edit', 'Delete'],
 			colModel: [
-				{name:'id',index:'id',width:5,align:'center',stype:'text',sorttype:'int',sortable:false}, 
+				{name:'id',index:'id',width:4,align:'center',stype:'text',sorttype:'int',sortable:false}, 
 				{name: 'Category', index: 'category_name', width: 40, align: 'left', stype: 'text', sortable: true},
-				{name: 'status', index: 'status', width: 10, align: 'center', stype: '',sortable: false, search: false},
-				{name: 'servicecount', index: 'servicecount', width: 10, align: 'center', stype: '',sortable: false, search: false},								
-				{name: 'newservice', index: 'newservice', width: 10, align: 'center', stype: '',sortable: false, search: false},
-				{name: 'action', index: 'action', width: 10, align: 'center', stype: '', sortable: false, search: false},
-				{name: 'delete', index: 'delete', width: 10, align: 'center', stype: '', sortable: false, search: false}
+				{name: 'status', index: 'status', width: 6, align: 'center', stype: '',sortable: false, search: false},
+				//{name: 'servicecount', index: 'servicecount', width: 10, align: 'center', stype: '',sortable: false, search: false},								
+				//{name: 'newservice', index: 'newservice', width: 4, align: 'center', stype: '',sortable: false, search: false},
+				{name: 'action', index: 'action', width: 4, align: 'center', stype: '', sortable: false, search: false},
+				{name: 'delete', index: 'delete', width: 4, align: 'center', stype: '', sortable: false, search: false}
 			],
 			pager: jQuery('#pager'),
 			rowNum:10,

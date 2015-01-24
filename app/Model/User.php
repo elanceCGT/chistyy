@@ -42,7 +42,6 @@ class User extends AppModel
 						'rule' => array('between', 6, 20),
 						'message' => 'Password must be between 6 and 20 characters long.',
 						'required' => 'create',
-						'last' => true
 					)
 				),
 				
@@ -50,71 +49,30 @@ class User extends AppModel
 					'required' => array(
 						'rule' => array('notEmpty'),
 						'message' => 'Confirm Password is required',
-						'allowEmpty' => true,
+						'required' => 'create',
 						'last' => true
 					),
 					'compare' => array(
 						'rule' => array('identicalPassword', 'password'),
 						'message' => "Password & Confirm Password does not match.",
-						'allowEmpty' => true
+						'required' => 'create',
 						
 					)
 				),	
     );
 		
 	public $hasOne = array(
-			'Cleaner' => array('className' => 'Cleaner', 'foreignKey' => 'user_id'), 
-			'ServiceProvider' => array('className' => 'ServiceProvider', 'foreignKey' => 'user_id'), 
-			'Customer' => array('className' => 'Customer', 'foreignKey' => 'user_id')
-		);
-		
+		'Cleaner' => array('className' => 'Cleaner', 'foreignKey' => 'user_id'), 
+		'ServiceProvider' => array('className' => 'ServiceProvider', 'foreignKey' => 'user_id'), 
+		'Customer' => array('className' => 'Customer', 'foreignKey' => 'user_id')
+	);
+	
+	public $hasMany = array(
+		'ServiceProviderService' => array('className' => 'ServiceProviderService', 'foreignKey' => 'user_id')
+    );
+
 	public $captcha = ''; //intializing captcha var
 	
-	/*
-		public $validate = array(
-		'first_name' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Field is required'
-			),
-			'alphanumeric' => array(
-				'rule' => array('alphaNumericOnly'),
-				'message' => "Please enter only alphabet.",
-			),
-		),
-		'last_name' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphaNumericOnly'),
-				'message' => "Please enter only alphabet.",
-				'allowEmpty' => true
-			),
-		),
-		'email' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Field is required'
-			),
-			'validEmail' => array(
-				'rule' => array('email'),
-				'message' => 'Please enter valid email address.'
-			),
-			'isUnique' => array(
-				'rule' => array('isUniqueCustom'),
-				'message' => 'This email id already exists.'
-			)
-		),
-		'current_password' => array(
-			'rule' => array('checkCurrentPassword'),
-			'message' => 'Current password does not match',
-		),
-		'confirm_password' => array(
-			'identicalFieldValues' => array(
-				'rule' => array('identicalPassword', 'password'),
-				'message' => "Password & Confirm Password does not match."
-			)
-		),
-	);
-*/
 	public function setPasswordRequired()
 	{
 		$this->validate = Set::merge($this->validate, array(

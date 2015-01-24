@@ -19,6 +19,7 @@
     		<div class="home_header"><?php echo $this->element('header_home'); ?></div>
             <div class="rightbox" data-toggle="modal" data-target="#myModal">CREATE YOUR PIN</div>
     	</div>
+      	
         <?php  echo $this->fetch('content');?>
     </div>
 </div>

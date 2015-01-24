@@ -213,8 +213,8 @@ select {
 }
 @font-face {
 	font-family: 'Glyphicons Halflings';
-	src: url(../fonts/glyphicons-halflings-regular.eot);
-	src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+	src: url(fonts/glyphicons-halflings-regular.eot);
+	src: url(fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(fonts/glyphicons-halflings-regular.woff) format('woff'), url(fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 }
 .glyphicon {
 	position: relative;
@@ -2070,14 +2070,14 @@ output {
 .form-control {
 	display: block;
 	width: 100%;
-	height: 34px;
+	height: 41px;
 	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #555;
 	background-color: #fff;
 	background-image: none;
-	border: 1px solid #ccc;
+	border: 2px solid #cbced4;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -2086,10 +2086,10 @@ output {
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 .form-control:focus {
-	border-color: #66afe9;
+	border-color: #357abb;
 	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
+	/*-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)*/
 }
 .form-control::-moz-placeholder {
 color:#999;
@@ -2377,9 +2377,9 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 }
 @media (min-width:768px) {
 .form-horizontal .control-label {
-	padding-top: 7px;
+	padding-top: 10px;
 	margin-bottom: 0;
-	text-align: right
+	text-align:left;
 }
 }
 .form-horizontal .has-feedback .form-control-feedback {
@@ -2397,7 +2397,7 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 }
 .btn {
 	display: inline-block;
-	padding: 6px 12px;
+	padding: 10px 12px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: 400;
@@ -2463,7 +2463,8 @@ textarea.input-lg, textarea.form-group-lg .form-control, select[multiple].input-
 .btn-primary {
 	color: #fff;
 	background-color: #428bca;
-	border-color: #357ebd
+	border-color: #357ebd;
+	min-width:116px;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
 	color: #fff;

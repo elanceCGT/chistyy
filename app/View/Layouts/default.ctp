@@ -6,6 +6,7 @@
 		<meta content="width=device-width, initial-scale=0.0" name="viewport" />
 		<title><?php echo $cakeDescription ?> : <?php echo __($title_for_layout); ?></title>
 		<?php echo $this->element('css-js'); ?>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<?php 
@@ -16,8 +17,8 @@
 			}
 		?>	
 		<div class="main_container">
-			<?php echo $this->fetch('content'); ?>
+    	<?php echo $this->fetch('content'); ?>
 		</div>
-		<?php //echo $this->element('footer'); ?>	
+		<?php echo $this->element('footer'); ?>	
 	</body>
 </html>

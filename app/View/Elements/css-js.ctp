@@ -13,8 +13,11 @@ echo $this->Html->css(
 		'main',
 		'bootstrap.min',
 		'datepicker',
+		'bootstrap-datetimepicker.min',
         'jRating.jquery',
-		'mycustom'
+		'mycustom',
+		'admin/jquery-ui',
+		
     )
 );
 ?>
@@ -28,14 +31,16 @@ echo $this->Html->script(
 		'jquery.selectbox-0.2',
 		'smk-accordion',
 		'jquery.nanoscroller',
-		'main',
+		//'main',
 		'jquery.tinycarousel',
 		'modernizr.custom',
 		'jquery.dlmenu',
 		'jquery.form',
 		'bootstrap.min',
 		'bootstrap-datepicker',
+		'bootstrap-datetimepicker.min',
 		'jquery.mask.min',
+		'admin/jquery-ui/js/jquery-ui-1.10.4',
 		'jQueryFileUpload/vendor/jquery.ui.widget',
 		'jQueryFileUpload/jquery.fileupload',
 		'jQueryFileUpload/jquery.iframe-transport',
@@ -53,8 +58,8 @@ echo $this->fetch('script');
 
 <script type="text/javascript">
 	$(function() {
-		$(".mod_select_box").selectbox();
-		$(".LOCATIONbutten").selectbox();
+		//$(".mod_select_box").selectbox();
+		//$(".LOCATIONbutten").selectbox();
 	});
 	
 	//document.getElementById("browseimg2").addEventListener("change", function() {
@@ -69,15 +74,21 @@ echo $this->fetch('script');
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".accordion_example1").smk_Accordion({closeAble: true});
+		//$(".accordion_example1").smk_Accordion({closeAble: true});
 	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#slider1').tinycarousel();
+		//$('#slider1').tinycarousel();
 	});
 </script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#slider1').tinycarousel();
+		});
+	</script>
 
 <!--/*------------------- JS-ENDS -------------------*/-->
 

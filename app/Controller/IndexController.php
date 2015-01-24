@@ -14,6 +14,7 @@ class IndexController extends AppController
 
 	public function index()
 	{
+		$this->layout = 'frontpage';
 		$this->set('title_for_layout', 'Home Page');
 		$this->loadModel('CmsPage');
         $this->loadModel('Setting');

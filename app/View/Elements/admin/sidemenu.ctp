@@ -51,7 +51,8 @@
                     <li id="sidemenu3">
                         <a href="javascript:void(0)"><i class="fa fa-files-o"></i> <span class="nav-label">Masters</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">                            
-                            <li class=""><a href="<?php echo $this->Html->url(array("controller"=>"category","action" => "index","admin" => true));?>">Category</a></li>
+                            <li class=""><a href="<?php echo $this->Html->url(array("controller"=>"category","action" => "main","admin" => true));?>">Main Category</a></li>
+                            <li class=""><a href="<?php echo $this->Html->url(array("controller"=>"category","action" => "sub","admin" => true));?>">Sub Category</a></li>
                             <li><a href="<?php echo $this->Html->url(array("controller"=>"services","action" => "index","admin" => true));?>">Services</a></li>
                         </ul>
                     </li>

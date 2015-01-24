@@ -21,9 +21,6 @@
 							<a href="<?php echo $urlChabgepassword; ?>"><?php echo __('CHANGE PASSWORD'); ?></a>
 						</li>
 						<li >
-							<a href="<?php echo $urlManagecleaner; ?>"><?php echo __('MANAGE CLEANER(s)'); ?></a>
-						</li>
-						<li >
 							<a href="<?php echo $urlLogout; ?>"><?php echo __('LOGOUT'); ?></a>
 						</li>
 					</ul>
@@ -40,9 +37,6 @@
 						</li>
 						<li >
 							<a href="<?php echo $urlChabgepassword; ?>"><?php echo __('CHANGE PASSWORD'); ?></a>
-						</li>
-						<li >
-							<a href="<?php echo $urlManagecleaner; ?>"><?php echo __('MANAGE CLEANER(s)'); ?></a>
 						</li>
 						<li >
 							<a href="<?php echo $urlLogout; ?>"><?php echo __('LOGOUT'); ?></a>

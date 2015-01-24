@@ -296,6 +296,7 @@ class CmsPagesController extends AppController
 	
 	public function index($key=null)
 	{
+		//$this->layout = 'innerpages';
 		$this->loadModel('CmsPage');
 		$data = $this->CmsPage->findByUniqueName($key);
 		$this->set("cmsPageData", $data);

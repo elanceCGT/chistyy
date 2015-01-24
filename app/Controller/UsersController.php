@@ -26,6 +26,48 @@ class UsersController extends AppController
 		$this->set('title_for_layout', 'User Signup');
 	}
 
+	public function changepassword()
+	{
+		$this->layout = 'innerpages';
+		$this->loadModel('User');
+		
+		$this->set('title_for_layout', 'Change Password');
+		
+		$currUserId = $this->Session->read('Auth.User.id');
+		
+		$currUserRecord = $this->User->find("first", array( 'recursive' => -1));
+		//prd($currUserRecord);
+		$request = $this->request;
+
+		$errors = array();
+		if (($request->is('post') || $request->is('put')))
+		{
+			$data = $request->data;
+			//prd($data);
+			$this->User->id = $data['User']['id'] = $currUserRecord['User']['id'];
+
+			if (!empty($data['User']['password']) && !empty($data['User']['confirm_password']) && $data['User']['confirm_password']!=$data['User']['password']){
+				$this->Session->setFlash(__("Password and confirm password donsen't match"), 'flash_error');
+				$this->redirect(array('admin' => false, 'controller' => 'users', 'action' => 'changepassword'));
+			}else{
+				unset($data['User']['confirm_password']);
+				//prd($data);
+				if($this->User->save($data)){
+					$this->Session->setFlash(__("User profile changed successfully."), 'flash_success');
+					$this->redirect(array('admin' => false, 'controller' => 'users', 'action' => 'changepassword'));
+				}
+			}
+		}else{
+			if (isset($currUserRecord) && !empty($currUserRecord)){
+				$this->request->data = $currUserRecord;
+			}else{
+				$this->Session->setFlash(__("Invalid User Request"), 'flash_error');
+				$this->redirect(array('admin' => true, 'controller' => 'users', 'action' => 'login'));
+			}
+		}
+		$this->set("errors", $errors);
+	}
+
 	public function admin_login(){
 		$this->set('title_for_layout', 'Login');
 		$this->Auth->authenticate = array(
@@ -518,29 +560,33 @@ class UsersController extends AppController
 
 		$user_id = $this->Auth->User("id");
 		if (!empty($user_id)){
-			$this->redirect(array("controller" => "index", "action" => "index"));
-		}
-		else
-		{
+			$user_type = $this->Auth->User("user_type");
+					
+			if($user_type == "1"){
+				$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'serviceprovider', 'action' => 'index');
+			}elseif ($user_type == "2"){
+				$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'cleaner', 'action' => 'dashbord');
+			}elseif ($user_type == "3"){
+				$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'customers', 'action' => 'index');
+			}
+			$this->redirect($this->Auth->loginRedirect);
+		}else{
 			if (($this->request->is('post')) || ($this->request->is('put'))){
+
 				if ($this->Auth->login()){
 
 					$user_type = $this->Auth->User("user_type");
 					
-					if($user_type == "1")
-					{
+					if($user_type == "1"){
 						$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'serviceprovider', 'action' => 'index');
-					}
-					elseif ($user_type == "2") {
-						$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'cleaner', 'action' => 'index');
-					}
-					elseif ($user_type == "3") {
+					}elseif ($user_type == "2"){
+						$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'cleaner', 'action' => 'dashbord');
+					}elseif ($user_type == "3"){
 						$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'customers', 'action' => 'index');
 					}
 
 					$this->redirect($this->Auth->loginRedirect);
-				}
-				else{
+				}else{
 					$this->Session->setFlash(__('Invalid Username or Password!'), 'flash_error');
 				}
 			}

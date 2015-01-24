@@ -77,12 +77,12 @@ class CustomersController extends AppController{
 				$this->request->data['User']['id'] = $userType;
 				$this->request->data['Customer']['id'] = $Service[0]['Customer']['id'];
 				$this->request->data['User']['user_modified'] = date('Y-m-d H:i:s', strtotime('now'));
-			$this->request->data['Customer']['customer_dateofbirth'] = date('Y-m-d', strtotime(str_replace("", "", $this->request->data['Customer']['customer_dateofbirth'])));
-				//prd($this->request->data);
+				$this->request->data['Customer']['customer_dateofbirth'] = date('Y-m-d', strtotime(str_replace("", "", $this->request->data['Customer']['customer_dateofbirth'])));
 				$this->User->id = $userType;
 				$this->Customer->user_id = $userType;
-				if(empty($this->request->data['User']['password'])){
+				if(empty($this->request->data['User']['password'])){	//this for remove validation if password feild not change.
 					unset($this->request->data['User']['password']);
+					unset($this->request->data['User']['confirm_password']);
 				}
         if ($this->User->saveAssociated($this->request->data)) {
             $this->Session->setFlash(__('Your User has been updated.'), 'flash_success');
@@ -95,7 +95,6 @@ class CustomersController extends AppController{
     if (!$this->request->data) {
 							$Service[0]['Customer']['customer_dateofbirth'] = date('m/d/Y', strtotime($Service[0]['Customer']['customer_dateofbirth']));
         $this->request->data = $Service[0];
-        //$this->request->data['Customer'] = $Service[0]['Customer'];
     }
 		$this->set("userType", '3');
 	}

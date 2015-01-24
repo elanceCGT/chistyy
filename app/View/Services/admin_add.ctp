@@ -6,74 +6,49 @@
         </ol><?*/?>
     </div>
 </div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=weather"></script>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">            
-            <div class="ibox float-e-margins">   
-                <!-- <div class="formAdmin"> -->                
-               
+            <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    
                     <?php echo $this->Form->create('Service' ,array("class" => "form-horizontal formAdmin")); ?>
-                        
-												 <div class="form-group <?php echo $this->Form->isFieldError('service_name') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Service Name</label>
+
+						<div class="form-group <?php echo $this->Form->isFieldError('service_name') ? "has-error" : "" ;?>">
+                            <label class="col-sm-2 control-label">Service Name</label>
                             <div class="col-sm-10">
-                                <?php
-                                    echo $this->Form->input('service_name',array('type' => 'text','placeholder' => 'Service Name','class'=>'form-control','label' => false,'div' => false,
-
-                                        'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))
-
-                                     ));
-                                 ?>
+                                <?php echo $this->Form->input('service_name',array('type' => 'text','placeholder' => 'Service Name','class'=>'form-control','label' => false,'div' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))));?>
                             </div>
                         </div>
                         
-												<div class="hr-line-dashed"></div>
+						<div class="hr-line-dashed"></div>
 
-														<div class="form-group <?php echo $this->Form->isFieldError('category_id') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Category</label>
+                        <div class="form-group <?php echo $this->Form->isFieldError('service_name') ? "has-error" : "" ;?>">
+                            <label class="col-sm-2 control-label">Service Description</label>
                             <div class="col-sm-10">
-                                <?php
-                                    echo $this->Form->input('category_id',array('type' => 'select', 'class'=>'form-control', 'label' => false, 'div' => false, 'options' => $category, 'value'=>$catid, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))
-
-                                     ));
-                                 ?>
+                                <?php echo $this->Form->input('servic_description',array('type' => 'text','placeholder' => 'Service Description','class'=>'form-control','label' => false,'div' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))));?>
                             </div>
                         </div>
                         
                         <div class="hr-line-dashed"></div>
 
-                        <div class="form-group <?php echo $this->Form->isFieldError('hourly_rate') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Hourly Rate</label>
+                        <div class="form-group <?php echo $this->Form->isFieldError('category_id') ? "has-error" : "" ;?>">
+                            <label class="col-sm-2 control-label">Main Category</label>
                             <div class="col-sm-10">
-                                <?php
-                                    echo $this->Form->input('hourly_rate',array('type' => 'text','placeholder' => 'Hourly Rate','class'=>'form-control','label' => false,'div' => false,
-
-                                        'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))
-
-                                     ));
-                                 ?>
+                                <?php echo $this->Form->input('category_id',array('type' => 'select', 'class'=>'form-control', 'label' => false, 'div' => false, 'options' => $category, 'required'=>true, 'onchange'=>'subcategorylist();', 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))));?>
                             </div>
                         </div>
                         
                         <div class="hr-line-dashed"></div>
 
-                        <div class="form-group <?php echo $this->Form->isFieldError('minimum_hour') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Minimum Hour</label>
+                        <div class="form-group <?php echo $this->Form->isFieldError('sub_category_id') ? "has-error" : "" ;?>">
+                            <label class="col-sm-2 control-label">Sub Category</label>
                             <div class="col-sm-10">
-                                <?php
-                                    echo $this->Form->input('minimum_hour',array('type' => 'text','placeholder' => 'Minimum Hour','class'=>'form-control','label' => false,'div' => false,
-
-                                        'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))
-
-                                     ));
-                                 ?>
+                                <?php echo $this->Form->input('sub_category_id',array('type' => 'select', 'class'=>'form-control', 'label' => false, 'div' => false, 'required'=>true, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label'))));?>
                             </div>
                         </div>
-                        
 
                         <div class="hr-line-dashed"></div>
-
-												
-												<!-- area end -->
+						
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-4">
@@ -81,25 +56,33 @@
                                 <button class="btn btn-white" type="reset" onclick="goBack();">Cancel</button>
                             </div>
                         </div>
-
-
-
-                    <?php
-						echo $this->Form->end();
-					?>
+                    <?php echo $this->Form->end(); ?>
                 </div>
-                    
-                <!-- </div> -->
             </div>
-        
-            
-            
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-	function goBack() {
-		window.top.location = "<?php echo $this->Html->url(array('controller'=>'services','action' => 'admin_index'), true); ?>"
-	}	
+    function subcategorylist(){
+        URL = '<?php echo $this->Html->url(array("controller" => "services","action" => "admin_subcatselectbox"));?>';
+        var ServiceCategoryId = $("#ServiceCategoryId").val();
+        $.ajax({
+            url : URL,
+            type: "POST",
+            data : ({ maincatid:ServiceCategoryId }),
+            beforeSend: function (XMLHttpRequest) {
+                
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+                
+            },
+            success : function(data){
+                $("#ServiceSubCategoryId").html(data);
+            }
+        });
+    }
+    $(document).ready(function() {
+        subcategorylist();
+    });
 </script>
