@@ -1,6 +1,12 @@
 <?php 
 class ServicesController extends AppController{
 
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		$this->Auth->allow('services');
+	}
+
 	public function admin_index($cat=0){
 		$this->set('cat', $cat);
 		$this->set('title_for_layout', 'Service List');
@@ -227,6 +233,20 @@ class ServicesController extends AppController{
 		}
 		echo json_encode($responce);
 		exit;
+	}
+
+	public function services(){
+		
+		$this->set('title_for_layout', 'Services');
+		$services = $this->Service->find('all', array(
+    		'conditions' => array('Service.service_status' => '0'),
+    		//'fields'     => array('Service.id', 'Service.service_name')
+		));
+		$this->set('services',$services);	
+		//$this->layout = 'innerpages';
+		//$this->set('title_for_layout', 'Home Page');
+		//$this->loadModel('CmsPage');
+        //$this->loadModel('Setting');
 	}
 	
 }

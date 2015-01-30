@@ -1,6 +1,12 @@
+<?php 
+$link = '';
+ $link = $this->Session->read('Auth.User.id') !='' ? "customers/addbooking": "users/login"  ; 
+?>
 <div class="fullwidth block2">
 	<div class="container">
-		<div class="blue_band">Book a <span>Cleaning</span> Anytime <a class="a1" herf="">book</a> <a class="a2" herf="">See All Services</a></div>
+		<div class="blue_band">Book a <span>Cleaning</span> Anytime 
+		<a class="a1" href="<?php echo $this->webroot.$link?>">book</a> 
+		<a class="a2" href="<?php echo $this->webroot?>services/services">See All Services</a></div>
 	</div>
 </div>
 <div class="fullwidth block3">
@@ -15,13 +21,15 @@
 		<a class="buttons prev" href="#"><img src="img/leftarrow.png"></a>
 		<div class="viewport">
 			<ul class="overview">
-				<li><img src="img/homesliderimg1.jpg" />
+				<?php foreach($services as $k => $v){ if($k<=5) { ?>
+				<li><img src="<?php echo $this->webroot?>img/homesliderimg1.jpg" />
 				  <div class="homesliderimgtextdiv">
-				   <div class="homesliderimgtextdivtitle">HouseKeeping</div>
-				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
+				   <div class="homesliderimgtextdivtitle"><?php echo $v['Service']['service_name']; ?></div>
+				   <a href="" class="homeknowmore">Know More<span><img src="<?php echo $this->webroot?>img/morearrowimg.png"></span></a>
 				 </div>
 				</li>
-				<li><img src="img/homesliderimg1.jpg" />
+				<?php } } ?>
+				<!-- <li><img src="img/homesliderimg1.jpg" />
 				 <div class="homesliderimgtextdiv">
 				   <div class="homesliderimgtextdivtitle">CArpet Cleaning</div>
 				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
@@ -50,7 +58,7 @@
 				   <div class="homesliderimgtextdivtitle">HouseKeeping</div>
 				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
 				 </div>
-				</li>
+				</li> -->
 				
 			</ul>
 		</div>
@@ -64,13 +72,14 @@
   
 		<div class="ourserviceli">
 			<ul >
+				<?php foreach($services as $k => $v){ if($k>5 && $k <= 7) { ?>
 				<li><img src="img/homeslide2img.jpg" />
 				  <div class="homesliderimgtextdiv">
-				   <div class="homesliderimgtextdivtitle">Laundry</div>
-				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
+				   <div class="homesliderimgtextdivtitle"><?php echo $v['Service']['service_name'];?></div>
+				   <a href="" class="homeknowmore">Know More<span><img src="<?php echo $this->webroot?>img/morearrowimg.png"></span></a>
 				 </div>
 				</li>
-				<li><img src="img/homeslide2img.jpg" />
+				<!-- <li><img src="img/homeslide2img.jpg" />
 				 <div class="homesliderimgtextdiv">
 				   <div class="homesliderimgtextdivtitle">snow removal</div>
 				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
@@ -81,7 +90,8 @@
 				   <div class="homesliderimgtextdivtitle">insect removal</div>
 				   <a href="" class="homeknowmore">Know More<span><img src="img/morearrowimg.png"></span></a>
 				 </div>
-				</li>
+				</li> -->
+				<?php } }?>
 				
 				
 				
@@ -89,7 +99,8 @@
 		</div>
 		
 		<div class="homeviewallbuttonouter">
-		 <button class="homeviewallbutton">View all services</button>
+		 <!-- <button class="homeviewallbutton">View all services</button> -->
+		 <a class="homeviewallbutton" href="<?php echo $this->webroot?>services/services">View all services</a></div>
 		</div>
 		
   </div>

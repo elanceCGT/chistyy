@@ -3,7 +3,7 @@
 if( ($this->Session->read('Auth.User.id')) && ($this->Session->read('Auth.User.id') > 0) ){
 
 	$user_type = $this->Session->read('Auth.User.user_type');
-	//echo $user_type; exit;
+
 	if($user_type=="1"){
 		$urls = array(
 			'urlDashboard' => $this->Html->url(array("controller" => "serviceprovider", "action" => "index")),
@@ -25,11 +25,13 @@ if( ($this->Session->read('Auth.User.id')) && ($this->Session->read('Auth.User.i
 		echo $this->element('_menu_afterlogin_cleaner', $urls);
 	}elseif($user_type=="3"){
 		$urls = array(
-			'urlDashboard' => $this->Html->url(array("controller" => "cleaner", "action" => "index")),
-			'urlProfile' => $this->Html->url(array("controller" => "cleaner", "action" => "profile")),
+			'urlDashboard' => $this->Html->url(array("controller" => "customers", "action" => "index")),
+			'urlProfile' => $this->Html->url(array("controller" => "customers", "action" => "profile")),
 			'urlChabgepassword' => $this->Html->url(array("controller" => "users", "action" => "changepassword")),
+			'urlCreateBooking' => $this->Html->url(array("controller" => "customers", "action" => "createbooking")),
 			'urlLogout' => $this->Html->url(array("controller" => "users", "action" => "logout"))
 		);
+
 		echo $this->element('_menu_afterlogin_customer', $urls);
 	}
 	
@@ -40,7 +42,7 @@ if( ($this->Session->read('Auth.User.id')) && ($this->Session->read('Auth.User.i
 		'urlSinup' => $this->Html->url(array("controller" => "users", "action" => "signup")),
 		'urlLogin' => $this->Html->url(array("controller" => "users", "action" => "login")),
 		'urlHelp' => $this->Html->url(array("controller" => "CmsPages", "action" => "index","HELP")),
-		'urlService' => $this->Html->url(array("controller" => "CmsPages", "action" => "index","SERVICES"))
+		'urlService' => $this->Html->url(array("controller" => "services", "action" => "services"))
 	);
 	echo $this->element('_menu_other', $urls);
 }

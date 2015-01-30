@@ -4,6 +4,13 @@ class Cleaner extends AppModel{
 	//public $tablePrefix = 'booking_';
 	//public $useTable  = 'cleaners';
 	public $belongsTo = 'User';
+
+	/*var $belongsTo = array(
+        'Countrie' => array(
+            'className' => 'User',
+            'foreignKey' => 'user_id'
+        )
+    );*/ 
 	public $validate = array(
 	
 			'service_provider_id' => array(
@@ -12,7 +19,6 @@ class Cleaner extends AppModel{
 							'message' => "Select Service Provider"
 						)
 				),
-				
 			'service_id' => array(
 					'notEmpty' => array(
 							'rule' => 'notEmpty',

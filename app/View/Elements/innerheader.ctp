@@ -8,7 +8,7 @@ if($user_type == "1"){
 	$link = $this->Html->url(array("controller" => "cleaner", "action" => "dashbord"));
 }elseif($user_type == "3"){
 	$username = $this->Session->read('Auth.User.Customer.customer_name');
-	$link = $this->Html->url(array("controller" => "cleaner", "action" => "index"));
+	$link = $this->Html->url(array("controller" => "customers", "action" => "index"));
 }?>
 <div class="innermain_logo">
 	<a href="<?php echo $link?>">

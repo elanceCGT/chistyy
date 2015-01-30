@@ -18,6 +18,7 @@ class IndexController extends AppController
 		$this->set('title_for_layout', 'Home Page');
 		$this->loadModel('CmsPage');
         $this->loadModel('Setting');
+        $this->loadModel('Service');
 		//$this->loadModel('TeamMember');
         
         
@@ -29,6 +30,12 @@ class IndexController extends AppController
         
         $premierLeagueData = $this->CmsPage->findByUniqueName("OFFICIAL_FANTASY");
 		$this->set("premierLeagueData", $premierLeagueData);
+
+		$services = $this->Service->find('all', array(
+    		'conditions' => array('Service.service_status' => '0'),
+    		//'fields'     => array('Service.id', 'Service.service_name')
+		));
+		
 
 
 		//$TeamMemberData = $this->TeamMember->find('all');
@@ -43,7 +50,6 @@ class IndexController extends AppController
 
 		//-------------- facebook login start -----------------//
 		App::import('Vendor', 'Facebook', array('file' => 'facebook/facebook.php'));
-
 		$appId = Configure::read('FACEBOOK_APPID');
 		$secret = Configure::read('FACEBOOK_SECRET');
 
@@ -60,6 +66,7 @@ class IndexController extends AppController
 		);
 		$this->set('fbLoginUrl', $fbLoginUrl);
 		//-------------- facebook login end -----------------//
+		$this->set('services',$services);	
 	}
 
 	public function captcha()

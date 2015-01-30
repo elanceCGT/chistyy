@@ -22,8 +22,7 @@ class UsersController extends AppController
 	}
 
 	public function signup()
-	{
-		$this->set('title_for_layout', 'User Signup');
+	{	$this->set('title_for_layout', 'User Signup');
 	}
 
 	public function changepassword()
@@ -743,6 +742,26 @@ class UsersController extends AppController
 		//echo $conditions;exit;
 
 		return $conditions;
+	}
+
+	/*public function services(){
+		$this->set('title_for_layout', 'Services');
+		$this->loadModel('Service');
+		$services = $this->Service->find('all', array(
+    		'conditions' => array('Service.service_status' => '0'),
+    		//'fields'     => array('Service.id', 'Service.service_name')
+		));
+		$this->set('services',$services);	
+	}*/
+
+	public function contactus(){
+		$this->set('title_for_layout', 'Contact Us');
+		$this->loadModel('Service');
+		$services = $this->Service->find('all', array(
+    		'conditions' => array('Service.service_status' => '0'),
+    		//'fields'     => array('Service.id', 'Service.service_name')
+		));
+		$this->set('services',$services);	
 	}
 
 }
