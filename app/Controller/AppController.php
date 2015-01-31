@@ -20,6 +20,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('Controller', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 App::uses('AuthComponent', 'Controller/Component');
 App::uses('Sanitize', 'Utility');
 App::import('Vendor', 'DateTimeUtil/DateTimeConverter');

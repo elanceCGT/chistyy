@@ -8,7 +8,7 @@
 	 <li><a href="">Login</a></li>
 	 <li><a href="">About Us</a></li>
 	 <li><a href="">Help</a></li>
-	 <li><a href="">Contact Us</a></li>
+	 <li><a href="<?php echo $this->webroot?>contact/index">Contact Us</a></li>
 	 <li><a href="">FAQ’s</a></li>
 	 <li><a href="">Terms &amp; Privacy</a></li>
 	 <li><a href="">Quick Contact</a></li>

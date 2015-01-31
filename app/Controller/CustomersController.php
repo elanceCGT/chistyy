@@ -291,21 +291,40 @@ class CustomersController extends AppController{
 	}
 
 
-	public function register(){
-
+	public function register(){ 
 		$this->set('title_for_layout', 'Add Customer');
-
 		$this->loadModel('User');
 		$this->loadModel('Customer');
 
 		if($this->request->is('post')){
 			$this->request->data['User']['user_type'] = '3';
 			$this->request->data['Customer']['customer_dateofbirth'] = date('Y-m-d', strtotime(str_replace("/", "-", $this->request->data['Customer']['customer_dateofbirth'])));
-
+			$secret_key = bin2hex(openssl_random_pseudo_bytes(30));
+			$this->request->data['User']['user_sec_key'] = $secret_key;
+			$this->request->data['User']['user_status'] = 1;
+			
 			if($this->User->saveAssociated($this->request->data)){
+
+				$msg = '<p>Dear User '.$this->request->data['User']['username'].'.</p><p>You requested for new account. Please click the below link to activate your account.</p> <p> <a href="http://'.$_SERVER['HTTP_HOST'].$this->webroot.'users/varify/'.$secret_key.'"> Confirm Your account</a></p><p>Thank you,</p><p>From : Admin</p>';
+				$Email = new CakeEmail();
+								$Email->from(array('admin@chistyy.com' => 'Confirmation Mail'))
+								->emailFormat('html')
+								->to($this->request->data['User']['username'])
+								->subject('Confirmation Mail')
+								->send($msg);
+				
 				$this->Session->setFlash(__('Your Customer has been added.'), 'flash_success');
 				return $this->redirect(array('controller' => 'users', 'action' => 'login'));
+        	}else{
+        		/*$this->User->set($this->request->data);
+        		$this->Customer->set($this->request->data);
+				$errors = $this->User->invalidFields();
+				prd($errors);*/
+				//$this->set('errors',$errors);
+				//$this->Session->setFlash(__('Your Customer has been added.'), 'flash_error');
+				//return $this->redirect(array('controller' => 'users', 'action' => 'login'));
         	}
+
         	$this->Session->setFlash(__('Unable to add your Customer.'), 'flash_error');
         	$this->redirect(array('controller' => 'users', 'action' => 'signup'));
 		}

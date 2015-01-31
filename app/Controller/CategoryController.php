@@ -1,5 +1,6 @@
 <?php 
 class CategoryController extends AppController{
+	
 	public function admin_index(){
 		$this->set('title_for_layout', 'Category List');
 	}

@@ -8,6 +8,7 @@
     </div>
 </div>
 <div class="inner_bg_color">
+<?php echo $this->Session->flash();?>
         <div class="container">
             <div class="fullwidth">
                 <div class="fullwidth login_top_text">
@@ -35,7 +36,7 @@
                                         <button type="submit" class="btn btn-primary block full-width m-b f-right">Login</button>
                     				<span class="forget_p">
                                     	Forgot Password
-                                        <a href="<?php echo $this->Html->url(array("controller"=>"users","action" => "forgot","admin" => false));?>">Click here</a>
+                                        <a href="<?php echo $this->Html->url(array("controller"=>"users","action" => "forgotpassword","admin" => false));?>">Click here</a>
                                     </span>
                                 </div>
                             <?php echo $this->Form->end(); ?>

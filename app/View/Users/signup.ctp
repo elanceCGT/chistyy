@@ -118,6 +118,7 @@
 	<div class="aboutusmain_buttom">
 		<div class="container">
 			<div class="fullwidth registerr txtcenter">Registration</div>
+            <?php echo $this->Session->flash();?>
 			<div class="col-md-12 login_top_text">
 				<div class="col-md-4"></div>
 				<div class="col-md-2"><input id="selectform_1" type="radio" name="selectform" value="1" checked="checked" /> Service Provider </div>
@@ -425,15 +426,15 @@
                                 </div>
                             </div>
                             
-                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_name') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Customer Name</label>
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_name') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">First Name</label>
                                 <div class="col-sm-10">
-                                    <?php echo $this->Form->input('Customer.customer_name',array('type' => 'text',  'placeholder' => 'Customer Name','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
+                                    <?php echo $this->Form->input('Customer.customer_name',array('type' => 'text',  'placeholder' => 'First Name','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
                                 </div>
                             </div>
                             
                             <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_number') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Last Name</label>
                                 <div class="col-sm-10">
-                                    <?php echo $this->Form->input('Customer.customer_number',array('type' => 'text',  'placeholder' => 'Contact No','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
+                                    <?php echo $this->Form->input('Customer.customer_lname',array('type' => 'text',  'placeholder' => 'Last Name','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
                                 </div>
                             </div>
                                                     
@@ -449,13 +450,34 @@
                                 <div class="col-sm-10">
                                 <?php echo $this->Form->input('Customer.customer_dateofbirth',array( 'readonly' => true, 'type' => 'text',  'placeholder' => '', 'class'=>'form-control', 'label' => false, 'div' => false, 'required' => false, 'error' => array('attributes' => array( 'wrap' => 'span', 'class' => 'control-label' )))); ?>
                                 </div>
+                            </div>  
+
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_phone_no') ? "has-error" : "" ;?>">
+                                <label class="col-sm-2 control-label">Phone No.</label>
+                                <div class="col-sm-10">
+                                <?php echo $this->Form->input('Customer.customer_phone_no',array( 'type' => 'text',  'placeholder' => 'Phone No.', 'class'=>'form-control', 'label' => false, 'div' => false, 'required' => false, 'error' => array('attributes' => array( 'wrap' => 'span', 'class' => 'control-label' )))); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_mobile_no') ? "has-error" : "" ;?>">
+                                <label class="col-sm-2 control-label">Mobile No.</label>
+                                <div class="col-sm-10">
+                                <?php echo $this->Form->input('Customer.customer_mobile_no',array( 'type' => 'text',  'placeholder' => 'Mobile No.', 'class'=>'form-control', 'label' => false, 'div' => false, 'required' => false, 'error' => array('attributes' => array( 'wrap' => 'span', 'class' => 'control-label' )))); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_areacd_no') ? "has-error" : "" ;?>">
+                                <label class="col-sm-2 control-label">Home Area Code</label>
+                                <div class="col-sm-10">
+                                <?php echo $this->Form->input('Customer.customer_areacd_no',array( 'type' => 'text',  'placeholder' => 'Home Area Code', 'class'=>'form-control', 'label' => false, 'div' => false, 'required' => false, 'error' => array('attributes' => array( 'wrap' => 'span', 'class' => 'control-label' )))); ?>
+                                </div>
                             </div>                                                    
                             
 						</div>
                         <div class="signup_50">
                         	<div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_number') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Email Address</label>
                                 <div class="col-sm-10">
-                                    <?php echo $this->Form->input('Customer.customer_number',array('type' => 'text',  'placeholder' => 'Contact No','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
+                                    <?php echo $this->Form->input('Customer.customer_email_address',array('type' => 'text',  'placeholder' => 'Email','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
                                 </div>
                             </div>
                                                                                 
@@ -465,6 +487,12 @@
                                 </div>
                             </div>
                                                     
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_proviencs') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">Province</label>
+                                <div class="col-sm-10">
+                                    <?php echo $this->Form->input('Customer.customer_proviencs',array('type' => 'text',  'placeholder' => 'Province','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
+                                </div>
+                            </div>
+
                             <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_city') ? "has-error" : "" ;?>"><label class="col-sm-2 control-label">City</label>
                                 <div class="col-sm-10">
                                     <?php echo $this->Form->input('Customer.customer_city',array('type' => 'text',  'placeholder' => 'City','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
@@ -477,7 +505,21 @@
                                     <?php echo $this->Form->input('Customer.customer_state',array('type' => 'text',  'placeholder' => 'State','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) ));?>
                                 </div>
                             </div>
+
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_country') ? "has-error" : "" ;?>">
+                                <label class="col-sm-2 control-label">Country</label>
+                                <div class="col-sm-10">
+                                    <?php echo $this->Form->input('Customer.customer_country',array('type' => 'text',  'placeholder' => 'Country','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) ));?>
+                                </div>
+                            </div>
                                                     
+                            <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_fsa') ? "has-error" : "" ;?>">
+                                <label class="col-sm-2 control-label">FSA</label>
+                                <div class="col-sm-10">
+                                    <?php echo $this->Form->input('Customer.customer_fsa',array('type' => 'text',  'placeholder' => 'FSA','class'=>'form-control','label' => false,'div' => false,'required' => false, 'error' => array('attributes' => array('wrap' => 'span', 'class' => 'control-label')) )); ?>
+                                </div>
+                            </div>
+
                             <div class="form-group <?php echo $this->Form->isFieldError('Customer.customer_zip_code') ? "has-error" : "" ;?>">
                                 <label class="col-sm-2 control-label">Zip</label>
                                 <div class="col-sm-10">

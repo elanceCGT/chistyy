@@ -658,7 +658,7 @@ class ServiceProviderController extends AppController{
 				$owner_first_na = $Users['ServiceProvider']['owner_first_na'];
 				$owner_phone_no = $Users['ServiceProvider']['owner_phone_no'];
 
-				$manage_services = '&nbsp;&nbsp;&nbsp;<a href="' . $this->webroot . 'admin/serviceprovider/services/' . $Users['User']['id'] . '" title="Edit Content"><i class="fa fa-edit fa-lg"></i></a> ';
+				$manage_services = '&nbsp;&nbsp;&nbsp;<a href="' . $this->webroot . 'admin/serviceprovider/services/' . $Users['User']['id'] . '" title="Manage Services"><i class="fa fa-edit fa-lg"></i></a> ';
 				
 				$action = '';
 				$edit = '';

@@ -17,7 +17,7 @@ class UsersController extends AppController
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$allowArr = array("admin_forgot", "admin_login", 'signup', 'login', 'logout', "admin_add");
+		$allowArr = array("admin_forgot", "admin_login", 'signup', 'login', 'logout', "admin_add","forgotpassword","varify");
 		$this->Auth->allow($allowArr);
 	}
 
@@ -560,7 +560,6 @@ class UsersController extends AppController
 		$user_id = $this->Auth->User("id");
 		if (!empty($user_id)){
 			$user_type = $this->Auth->User("user_type");
-					
 			if($user_type == "1"){
 				$this->Auth->loginRedirect = array('admin' => false, 'controller' => 'serviceprovider', 'action' => 'index');
 			}elseif ($user_type == "2"){
@@ -754,7 +753,7 @@ class UsersController extends AppController
 		$this->set('services',$services);	
 	}*/
 
-	public function contactus(){
+	/*public function contactus(){
 		$this->set('title_for_layout', 'Contact Us');
 		$this->loadModel('Service');
 		$services = $this->Service->find('all', array(
@@ -762,6 +761,75 @@ class UsersController extends AppController
     		//'fields'     => array('Service.id', 'Service.service_name')
 		));
 		$this->set('services',$services);	
+	}*/
+
+	public function forgotpassword()
+	{
+		
+		if (($this->request->is('post')) || ($this->request->is('put')))
+		{	
+			if (($this->request->is('post') || $this->request->is('put'))  )
+			{
+				if(isset($this->request->data['User']['username']) && $this->request->data['User']['username'] !=''){
+					$this->loadModel('User');
+					if (filter_var($this->request->data['User']['username'], FILTER_VALIDATE_EMAIL)) {
+						$user_detail = $this->User->find('first',array('conditions'=>array('username'=>$this->request->data['User']['username'])));
+							if(!empty($user_detail)){
+								$new_password = rand();
+								$user_detail['User']['password'] = $new_password ;
+								$this->User->save($user_detail);
+								$msg = '<p>Dear User '.$user_detail['User']['username'].'.</p><p>You requested that your password be reset. From now you can use '.$new_password.' as your new password.</p><p>Thank you,</p><p>From : Admin</p>';
+								$Email = new CakeEmail();
+								$Email->from(array('admin@chistyy.com' => 'Forgot Password'))
+								->to($user_detail['User']['username'])
+								->subject('Forgot Password')
+								->send($msg);
+								$this->Session->setFlash(__('Password sent at your given mail address.'), 'flash_success');
+								return $this->redirect(array());
+							}else{
+								$this->Session->setFlash(__('User with this email not exist.'), 'flash_error');
+								return $this->redirect(array());
+							}	
+
+					}else{
+					    $this->Session->setFlash(__('Invalid email format.'), 'flash_error');
+						return $this->redirect(array());
+					}
+					
+				}else{
+					$this->Session->setFlash(__('Email Can\'t be blank' ), 'flash_error');
+					return $this->redirect(array());
+				}
+				
+			}
+			
+		}
+	}
+
+	public function varify($key='')
+	{
+		if($key !=''){
+			$this->loadModel('User');
+			$isUser = $this->User->find('first',array('conditions'=>array('User.user_sec_key'=>$key)));
+			if(empty($isUser)){
+				$this->Session->setFlash(__('Invalid User'), 'flash_error');
+				return $this->redirect(array('controller' => 'users', 'action' => 'login'));
+			}else{
+				$data = array();
+				$data['User']['id'] = $isUser['User']['id'];
+				$data['User']['user_sec_key'] = '';
+				$data['User']['user_status'] = 0;
+
+				$this->User->save($data,false);
+				
+				$this->Session->setFlash(__('You are varified successfully, Please Login with your username and password.'), 'flash_success');
+				return $this->redirect(array('controller' => 'users', 'action' => 'login'));
+			}
+		}else{
+			$this->Session->setFlash(__('Invalid User'), 'flash_error');
+			return $this->redirect(array('controller' => 'users', 'action' => 'login'));
+		}
+
 	}
 
 }

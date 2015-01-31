@@ -65,6 +65,13 @@
                             <li><a href="<?php echo $this->Html->url(array("admin" => true,"controller"=>"cleaner","action" => "index"));?>">Cleaner</a></li>
                         </ul>
                     </li>
+
+                    <li id="sidemenu6">
+                        <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Booking</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo $this->Html->url(array("admin" => true,"controller"=>"booking","action" => "bookinglist"));?>">Booking List</a></li>
+                        </ul>
+                    </li>
                     
                     <li id="sidemenu5">
                         <a href="javascript:void(0)"><i class="fa fa-files-o"></i> <span class="nav-label">Content Management</span><span class="fa arrow"></span></a>
